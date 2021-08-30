@@ -71,6 +71,7 @@ nav a {
 
 .content {
     padding: 1rem 0px 0px 1.5rem;
+    margin: auto;
 }
 
 #floatright {
@@ -96,7 +97,7 @@ nav a {
 }
 
 .address {
-    /* padding-left: 40px; */
+    padding-left: 20px;
     padding-bottom: 20px;
     margin: 0;
     /* font-size: .8rem;

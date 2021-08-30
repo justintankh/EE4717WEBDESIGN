@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaJam Coffee House</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+        table {
+            margin: auto;
+            width: 600px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        tr:nth-of-type(odd) {
+            background-color: #edd7ba;
+        }
+
+        img {
+            padding: 0px 80px;
+        }
+
+        table tr {
+            padding-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div id="leftcolumn">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="rightcolumn">
+            <div class="content">
+                <h2>Music at JavaJam</h2>
+                <p>The first Friday night each month at JavaJam is a special night. Join us from 8pm to 11pm for some
+                    music you won't want to miss.</p>
+                <table>
+                    <tr>
+                        <td colspan="2"><strong>JANUARY</strong></td>
+                    </tr>
+                    <tr>
+                        <td><img src="homeimage.png" alt="Melanie Morris" height="80" width="80"></td>
+                        <td>Melanie Morris entertains with her melodic folk style.<br>CDs are now available.
+                            <audio controls>
+                                <source src="music/sample.mp3" type="audio/mp3">
+                            </audio>
+                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>FEBRUARY</strong></td>
+                    </tr>
+                    <tr>
+                        <td><img src="homeimage.png" alt="Tahoe Greg" height="80" width="80"></td>
+                        <td>Tahoe Greg is back from his tour.<br>New Songs.<br>New Stories.<br>CDs are now available.
+
+                            <audio controls>
+                                <source src="music/sample.mp3" type="audio/mp3">
+                            </audio>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>
+            <br><small><i><a href="mailto:justin@tan.com">justin@tankoonhan.com</a></i></small>
+        </footer>
+
+    </div>
+</body>
+
+</html>

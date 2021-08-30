@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaJam Coffee House</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+        form {
+            padding: 20px 40px
+        }
+
+        form label {
+            float: left;
+            clear: left;
+            display: block;
+            width: 120px;
+            text-align: right;
+            padding-right: 2em;
+        }
+
+        form input {
+            margin-bottom: 20px;
+            display: inline;
+            vertical-align: text-top;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div id="leftcolumn">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="rightcolumn">
+            <div class="content">
+                <h2>Jobs at JavaJam</h2>
+                <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are
+                    marked with an asterisk *</p>
+                <form action="show_post.php" method="post">
+                    <label for="name">*Name:</label>
+                    <input type="text" name="name" required align="center"></input>
+                    <br>
+                    <label for="email">*Email:</label>
+                    <input type="email" name="email" id="email" required align="center"></input>
+                    <br>
+                    <label for="startDate">Start Date:</label>
+                    <input type="Date" name="startDate" align="center"></input>
+                    <br>
+                    <label for="experience">*Experience:</label>
+                    <textarea name="experience" required align="center"></textarea>
+                    <br>
+                    <br>
+                    <input type="reset" value="Clear">
+                    <br>
+                    <input type="submit" value="Apply Now">
+                </form>
+            </div>
+        </div>
+        <footer>
+            <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>
+            <br><small><i><a href="mailto:justin@tan.com">justin@tankoonhan.com</a></i></small>
+        </footer>
+    </div>
+</body>
+
+</html>

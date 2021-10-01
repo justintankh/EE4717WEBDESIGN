@@ -44,7 +44,8 @@ function qtyCounter (event) {
         Enter only numbers 0 or greater.
         `);
         
-        node.value = '0';
+        node.value = 0;
+        qty = 0;
         node.focus();
     }
     

@@ -8,12 +8,21 @@ var item1MenuTol = document.getElementById("first-menu-tol");
 var item2MenuTol = document.getElementById("second-menu-tol");
 var item3MenuTol = document.getElementById("third-menu-tol");
 
+var totalPriceDOM = document.getElementById("total-price");
+
 var item2Choice = document.getElementsByName("second-menu-choice");
-var item3Choice = document.getElementsByName("THIRD-menu-choice");
+var item3Choice = document.getElementsByName("third-menu-choice");
 
 item1MenuQty.addEventListener("change", qtyCounter, false);
 item2MenuQty.addEventListener("change", qtyCounter, false);
 item3MenuQty.addEventListener("change", qtyCounter, false);
+
+item2Choice.forEach((item) => {
+    item.addEventListener("change", radioUpdate, false);
+})
+item3Choice.forEach((item) => {
+    item.addEventListener("change", radioUpdate, false);
+})
 
 var item1Qty = 0;
 var item2Qty = 0;
@@ -70,22 +79,37 @@ function tabulate(event) {
     // (nodeName == "third-menu-qty") ? item3MenuTol : null;
 
     if (nodeName == "first-menu-qty") {
-        var tabulatedPrice1 = item1Price*item1Qty;
+        tabulatedPrice1 = item1Price*item1Qty;
         item1MenuTol.innerHTML = '<div>$' + `${tabulatedPrice1}` + '</div>';
     }
     else if(nodeName == "second-menu-qty"){
-        var tabulatedPrice2 = item2Price*item2Qty;
+        tabulatedPrice2 = item2Price*item2Qty;
         tabulatedPrice2 = item2Choice[0].checked ? item2Price*item2Qty : (item2Price+1)*item2Qty;
         item2MenuTol.innerHTML = '<div>$' + `${tabulatedPrice2}` + '</div>';
     }
     else if (nodeName == "third-menu-qty") {
-
+        tabulatedPrice3 = item3Price*item3Qty;
+        tabulatedPrice3 = item3Choice[0].checked ? item3Price*item3Qty : (item3Price+1)*item3Qty;
+        item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3}` + '</div>';
     }
     totalPrice = tabulatedPrice1 + tabulatedPrice2 + tabulatedPrice3;
+    item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3}` + '</div>';
 
     // console.log("event: ",event.currentTarget);
     // console.log("dom:",dom);
     console.log('totalPrice:', totalPrice)
+    totalPriceDOM.innerHTML = '<div>$' + `${totalPrice}` + '</div>';
 
     return true;
+}
+
+function radioUpdate(event) {
+    var tempEvent = {
+        currentTarget: {
+            id: '',
+        }
+    }
+    tempEvent.currentTarget.id = (event.currentTarget.name == 'second-menu-choice') ? 'second-menu-qty' : 'third-menu-qty';
+    console.log(event.currentTarget.name);
+    return tabulate(tempEvent);
 }

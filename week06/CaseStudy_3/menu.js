@@ -9,27 +9,41 @@ var item2MenuTol = document.getElementById("2nd-menu-tol");
 var item3MenuTol = document.getElementById("3rd-menu-tol");
 
 
-item1MenuQtyNode.addEventListener("change", qtyCounter, false);
-item2MenuQtyNode.addEventListener("change", qtyCounter, false);
-item3MenuQtyNode.addEventListener("change", qtyCounter, false);
+item1MenuQty.addEventListener("change", qtyCounter, false);
+item2MenuQty.addEventListener("change", qtyCounter, false);
+item3MenuQty.addEventListener("change", qtyCounter, false);
 
+var item1Qty = 0;
+var item2Qty = 0;
+var item3Qty = 0;
 
 function qtyCounter (event) {
     // Get the target node of the event
-    let nameNode = event.currentTarget;
-    // console.log(name);
+    var node = event.currentTarget;
+    var qty = parseInt(node.value);
+    console.log(node.id);
+    console.log(node.value);
     
     //// only allow Alphabets and spaces
-    if(nameNode.value.search(/^[a-zA-Z\s]*$/) != 0){
+    if(qty < 0 || isNaN(node.value)){
         alert(`
-        (${nameNode.id}) Input ERROR:
-        ${nameNode.value}
+        (${node.id}) Input ERROR:
+        ${node.value}
         
-        Enter only alphabets & spaces
+        Enter only numbers 0 or greater.
         `);
-
-        nameNode.focus();
-        nameNode.value = '';
-        return false;
+        
+        node.value = '0';
+        node.focus();
     }
+    
+    // Checking for 1st menu qty
+    (node.id == "1st-menu-qty") ? item1Qty = qty :
+    (node.id == "2nd-menu-qty") ? item2Qty = qty :
+    (node.id == "3rd-menu-qty") ? item3Qty = qty : console.log(`Couldn't find ID`)
+    console.log('item1Qty:', item1Qty);
+    console.log('item2Qty:', item2Qty);
+    console.log('item3Qty:', item3Qty);
+
+    return true;
 }

@@ -52,7 +52,8 @@ function qtyCounter (event) {
     // Checking for 1st menu qty
     (node.id == "first-menu-qty") ? item1Qty = qty :
     (node.id == "second-menu-qty") ? item2Qty = qty :
-    (node.id == "third-menu-qty") ? item3Qty = qty : console.log(`Couldn't find ID`)
+    (node.id == "third-menu-qty") ? item3Qty = qty : 
+    console.log(`Couldn't find ID`)
 
     console.log('item1Qty:', item1Qty);
     console.log('item2Qty:', item2Qty);

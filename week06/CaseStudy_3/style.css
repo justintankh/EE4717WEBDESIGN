@@ -2,6 +2,7 @@ body {
     font-family: Verdana, Arial, sans-serif;
     background-color: #E7D8A0;
     color: #3d1e1a;
+    box-sizing: border-box;
 }
 
 #wrapper {

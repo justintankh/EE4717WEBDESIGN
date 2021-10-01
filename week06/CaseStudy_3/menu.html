@@ -19,6 +19,22 @@
         tr:nth-of-type(odd) {
             background-color: #d2b48c;
         }
+
+        .tabulation-table {
+            background-color: #F5F5DD;
+            border: 2px solid black;
+        }
+
+        .tabulation {
+            /* display: inline; */
+            /* position: relative; */
+            border: 2px solid black;
+            /* float: left; */
+        }
+
+        .total-price {
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -43,9 +59,14 @@
                 <tr>
                     <td id="text-center"><b>Just Java </b></td>
                     <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b>Endless Cup $2.00</b></td>
-                    <td>
+                    <td class="tabulation-table">
                         <div>
-                            number of item
+                            QTY
+                        </div>
+                    </td>
+                    <td class="tabulation-table">
+                        <div>
+                            TOL
                         </div>
                     </td>
                 </tr>
@@ -58,9 +79,14 @@
                         <input type="radio" , id="double-cafe" , name="drinks" , value="cafe">
                         <label for="double-capp"><strong>Double $3.00</strong></label>
                     </td>
-                    <td>
+                    <td class="tabulation-table">
                         <div>
-                            number of item
+                            QTY
+                        </div>
+                    </td>
+                    <td class="tabulation-table">
+                        <div>
+                            TOL
                         </div>
                     </td>
                 </tr>
@@ -72,9 +98,27 @@
                         <input type="radio" , id="double" , name="drinks" , value="espresso">
                         <label for="double-capp"><strong>Double $5.75</strong></label>
                     </td>
-                    <td>
+                    <td class="tabulation-table">
                         <div>
-                            number of item
+                            QTY
+                        </div>
+                    </td>
+                    <td class="tabulation-table">
+                        <div>
+                            TOL
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="total-price">
+                            Total Price
+                        </div>
+                    </td>
+                    <td colspan="2" class="tabulation-table">
+                        <div class="">
+                            TOL P
                         </div>
                     </td>
                 </tr>

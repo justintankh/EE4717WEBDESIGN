@@ -32,7 +32,7 @@
             /* float: left; */
         }
 
-        .total-price {
+        .total-price-text {
             text-align: right;
         }
     </style>
@@ -59,7 +59,7 @@
                 <tr>
                     <td id="text-center"><b>Just Java </b></td>
                     <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b>Endless Cup $2.00</b></td>
-                    <td class="tabulation-table">
+                    <td class="tabulation-table" id="1st-menu-qty">
                         <div>
                             QTY
                         </div>
@@ -79,12 +79,12 @@
                         <input type="radio" , id="double-cafe" , name="drinks" , value="cafe">
                         <label for="double-capp"><strong>Double $3.00</strong></label>
                     </td>
-                    <td class="tabulation-table">
+                    <td class="tabulation-table" id="2nd-menu-qty">
                         <div>
                             QTY
                         </div>
                     </td>
-                    <td class="tabulation-table">
+                    <td class="tabulation-table" id="2nd-menu-tol">
                         <div>
                             TOL
                         </div>
@@ -98,12 +98,12 @@
                         <input type="radio" , id="double" , name="drinks" , value="espresso">
                         <label for="double-capp"><strong>Double $5.75</strong></label>
                     </td>
-                    <td class="tabulation-table">
+                    <td class="tabulation-table" id="3rd-menu-qty">
                         <div>
                             QTY
                         </div>
                     </td>
-                    <td class="tabulation-table">
+                    <td class="tabulation-table" id='3rd-menu-tol'>
                         <div>
                             TOL
                         </div>
@@ -112,17 +112,18 @@
                 <tr>
                     <td></td>
                     <td>
-                        <div class="total-price">
+                        <div class="total-price-text">
                             Total Price
                         </div>
                     </td>
-                    <td colspan="2" class="tabulation-table">
+                    <td colspan="2" class="tabulation-table" id="total-price">
                         <div class="">
                             TOL P
                         </div>
                     </td>
                 </tr>
             </table>
+            <script type="text/javascript" src="menu.js"></script>
         </div>
         <footer>
             <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>

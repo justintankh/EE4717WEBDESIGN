@@ -8,6 +8,8 @@ var item1MenuTol = document.getElementById("first-menu-tol");
 var item2MenuTol = document.getElementById("second-menu-tol");
 var item3MenuTol = document.getElementById("third-menu-tol");
 
+var item2Choice = document.getElementsByName("second-menu-choice");
+var item3Choice = document.getElementsByName("THIRD-menu-choice");
 
 item1MenuQty.addEventListener("change", qtyCounter, false);
 item2MenuQty.addEventListener("change", qtyCounter, false);
@@ -41,9 +43,49 @@ function qtyCounter (event) {
     (node.id == "first-menu-qty") ? item1Qty = qty :
     (node.id == "second-menu-qty") ? item2Qty = qty :
     (node.id == "third-menu-qty") ? item3Qty = qty : console.log(`Couldn't find ID`)
+
     console.log('item1Qty:', item1Qty);
     console.log('item2Qty:', item2Qty);
     console.log('item3Qty:', item3Qty);
+
+    return tabulate(event);
+}
+
+const item1Price = 2.00;
+const item2Price = 2.00;
+// const item2PriceB = 3.00;
+const item3Price = 4.75;
+// const item3PriceB = 5.75;
+var totalPrice = 0;
+var tabulatedPrice1 = 0;
+var tabulatedPrice2 = 0;
+var tabulatedPrice3 = 0;
+
+function tabulate(event) {
+    var nodeName = event.currentTarget.id;
+    // matching DOM of tabulated price
+
+    // var dom = (nodeName == "first-menu-qty") ? item1MenuTol :
+    // (nodeName == "second-menu-qty") ? item2MenuTol :
+    // (nodeName == "third-menu-qty") ? item3MenuTol : null;
+
+    if (nodeName == "first-menu-qty") {
+        var tabulatedPrice1 = item1Price*item1Qty;
+        item1MenuTol.innerHTML = '<div>$' + `${tabulatedPrice1}` + '</div>';
+    }
+    else if(nodeName == "second-menu-qty"){
+        var tabulatedPrice2 = item2Price*item2Qty;
+        tabulatedPrice2 = item2Choice[0].checked ? item2Price*item2Qty : (item2Price+1)*item2Qty;
+        item2MenuTol.innerHTML = '<div>$' + `${tabulatedPrice2}` + '</div>';
+    }
+    else if (nodeName == "third-menu-qty") {
+
+    }
+    totalPrice = tabulatedPrice1 + tabulatedPrice2 + tabulatedPrice3;
+
+    // console.log("event: ",event.currentTarget);
+    // console.log("dom:",dom);
+    console.log('totalPrice:', totalPrice)
 
     return true;
 }

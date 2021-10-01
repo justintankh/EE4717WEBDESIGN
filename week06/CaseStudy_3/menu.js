@@ -1,12 +1,12 @@
 // register event handler
 
-var item1MenuQty = document.getElementById("1st-menu-qty");
-var item2MenuQty = document.getElementById("2nd-menu-qty");
-var item3MenuQty = document.getElementById("3rd-menu-qty");
+var item1MenuQty = document.getElementById("first-menu-qty");
+var item2MenuQty = document.getElementById("second-menu-qty");
+var item3MenuQty = document.getElementById("third-menu-qty");
 
-var item1MenuTol = document.getElementById("1st-menu-tol");
-var item2MenuTol = document.getElementById("2nd-menu-tol");
-var item3MenuTol = document.getElementById("3rd-menu-tol");
+var item1MenuTol = document.getElementById("first-menu-tol");
+var item2MenuTol = document.getElementById("second-menu-tol");
+var item3MenuTol = document.getElementById("third-menu-tol");
 
 
 item1MenuQty.addEventListener("change", qtyCounter, false);
@@ -38,9 +38,9 @@ function qtyCounter (event) {
     }
     
     // Checking for 1st menu qty
-    (node.id == "1st-menu-qty") ? item1Qty = qty :
-    (node.id == "2nd-menu-qty") ? item2Qty = qty :
-    (node.id == "3rd-menu-qty") ? item3Qty = qty : console.log(`Couldn't find ID`)
+    (node.id == "first-menu-qty") ? item1Qty = qty :
+    (node.id == "second-menu-qty") ? item2Qty = qty :
+    (node.id == "third-menu-qty") ? item3Qty = qty : console.log(`Couldn't find ID`)
     console.log('item1Qty:', item1Qty);
     console.log('item2Qty:', item2Qty);
     console.log('item3Qty:', item3Qty);

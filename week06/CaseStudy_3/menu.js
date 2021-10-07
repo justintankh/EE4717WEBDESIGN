@@ -82,25 +82,25 @@ function tabulate(event) {
 
     if (nodeName == "first-menu-qty") {
         tabulatedPrice1 = item1Price*item1Qty;
-        item1MenuTol.innerHTML = '<div>$' + `${tabulatedPrice1}` + '</div>';
+        item1MenuTol.innerHTML = '<div>$' + `${tabulatedPrice1.toFixed(2)}` + '</div>';
     }
     else if(nodeName == "second-menu-qty"){
         tabulatedPrice2 = item2Price*item2Qty;
         tabulatedPrice2 = item2Choice[0].checked ? item2Price*item2Qty : (item2Price+1)*item2Qty;
-        item2MenuTol.innerHTML = '<div>$' + `${tabulatedPrice2}` + '</div>';
+        item2MenuTol.innerHTML = '<div>$' + `${tabulatedPrice2.toFixed(2)}` + '</div>';
     }
     else if (nodeName == "third-menu-qty") {
-        tabulatedPrice3 = item3Price*item3Qty;
+        tabulatedPrice3 = (item3Price*item3Qty);
         tabulatedPrice3 = item3Choice[0].checked ? item3Price*item3Qty : (item3Price+1)*item3Qty;
-        item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3}` + '</div>';
+        item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3.toFixed(2)}` + '</div>';
     }
     totalPrice = tabulatedPrice1 + tabulatedPrice2 + tabulatedPrice3;
-    item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3}` + '</div>';
+    item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3.toFixed(2)}` + '</div>';
 
     // console.log("event: ",event.currentTarget);
     // console.log("dom:",dom);
     console.log('totalPrice:', totalPrice)
-    totalPriceDOM.innerHTML = '<div>$' + `${totalPrice}` + '</div>';
+    totalPriceDOM.innerHTML = '<div>$' + `${totalPrice.toFixed(2)}` + '</div>';
 
     return true;
 }

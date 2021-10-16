@@ -85,8 +85,7 @@
                     <td class="tabulation">New Price</td>
                 </tr>
                 <tr>
-                    <td class="checkbox-column"><input type="checkbox" id="first-menu-change" name="first-menu-change"
-                            value="check1">
+                    <td class="checkbox-column"><input type="checkbox" id="first-menu-change" name="first-menu-change" value="check1">
                     </td>
                     <td id="text-center"><b>Just Java </b></td>
                     <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b id="menu-1-price"></b>
@@ -96,8 +95,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="checkbox-column"><input type="checkbox" id="second-menu-change" name="first-menu-change"
-                            value="check2">
+                    <td class="checkbox-column"><input type="checkbox" id="second-menu-change" name="first-menu-change" value="check2">
                     </td>
                     <td id="text-center"><b>Cafe au Lait </b></td>
                     <td>House blended coffee infused into a smooth, steamed milk<br>
@@ -111,8 +109,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="checkbox-column"><input type="checkbox" id="third-menu-change" name="first-menu-change"
-                            value="check3">
+                    <td class="checkbox-column"><input type="checkbox" id="third-menu-change" name="first-menu-change" value="check3">
                     </td>
                     <td id="text-center"><b>Iced Cappuccino</b></td>
                     <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass<br><br>

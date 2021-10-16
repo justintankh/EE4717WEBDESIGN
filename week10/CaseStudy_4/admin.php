@@ -92,25 +92,15 @@
 
             <?php
             if (isset($_POST['submit'])) {
-                // Check if item is checked
-                $price_1 = $_POST['item1'];
-                $price_2 = $_POST['item2'];
-                $price_3 = $_POST['item3'];
-                $price_4 = $_POST['item4'];
-                $price_5 = $_POST['item5'];
-
-                $sql1 = "UPDATE MyData SET price=$price_1 WHERE id=1";
-                $sql2 = "UPDATE MyData SET price=$price_2 WHERE id=2";
-                $sql3 = "UPDATE MyData SET price=$price_3 WHERE id=3";
-                $sql4 = "UPDATE MyData SET price=$price_4 WHERE id=4";
-                $sql5 = "UPDATE MyData SET price=$price_5 WHERE id=5";
-
-                $res = mysqli_query($conn, $sql1) or die(mysqli_error($conn)); //if query successful, $res is true, else false
-                $res = mysqli_query($conn, $sql2) or die(mysqli_error($conn)); //if query successful, $res is true, else false
-                $res = mysqli_query($conn, $sql3) or die(mysqli_error($conn)); //if query successful, $res is true, else false
-                $res = mysqli_query($conn, $sql4) or die(mysqli_error($conn)); //if query successful, $res is true, else false
-                $res = mysqli_query($conn, $sql5) or die(mysqli_error($conn)); //if query successful, $res is true, else false
-
+                // Check if requires updating
+                for ($i = 1; $i < 6; $i++) {
+                    $price = $_POST['item' . $i];
+                    if ($price == '') {
+                        continue;
+                    }
+                    $sql = "UPDATE MyData SET price=$price WHERE id=$i";
+                    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+                }
             }
 
             ?>

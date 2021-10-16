@@ -167,6 +167,9 @@ function clearPrice(){
     firstMenuPriceChange.style.visibility = "hidden";
     secondMenuPriceChange.style.visibility = "hidden";
     thirdMenuPriceChange.style.visibility = "hidden";
+    firstMenuPriceChange.value = ""
+    secondMenuPriceChange.value = ""
+    thirdMenuPriceChange.value = ""
     firstMenuCheckbox.checked = false;
     secondMenuCheckbox.checked = false;
     thirdMenuCheckbox.checked = false;

@@ -7,11 +7,11 @@ var item3MenuPrc1 = document.getElementById("menu-3-price-1");
 var item3MenuPrc2 = document.getElementById("menu-3-price-2");
 
 console.log(item1MenuPrc.innerText);
-item1MenuPrc.innerText = "Endless Cup $2.00";
-item2MenuPrc1.innerText = "Single $2.00";
-item2MenuPrc2.innerText = "Double $3.00";
-item3MenuPrc1.innerText = "Single $4.75";
-item3MenuPrc2.innerText = "Double $5.75";
+// item1MenuPrc.innerText = "Endless Cup $2.00";
+// item2MenuPrc1.innerText = "Single $2.00";
+// item2MenuPrc2.innerText = "Double $3.00";
+// item3MenuPrc1.innerText = "Single $4.75";
+// item3MenuPrc2.innerText = "Double $5.75";
 
 // Checkbox
 var firstMenuCheckbox = document.getElementById("first-menu-change");

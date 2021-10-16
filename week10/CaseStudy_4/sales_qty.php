@@ -104,6 +104,33 @@
             $sum_qty_5 = $row['item_5_sum'];
             ?>
 
+            <?php
+            $sql = "SELECT id, item, price FROM MyData";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row["id"] == 1) {
+                        $price_1 = $row["price"];
+                    }
+                    if ($row["id"] == 2) {
+                        $price_2 = $row["price"];
+                    }
+                    if ($row["id"] == 3) {
+                        $price_3 = $row["price"];
+                    }
+                    if ($row["id"] == 4) {
+                        $price_4 = $row["price"];
+                    }
+                    if ($row["id"] == 5) {
+                        $price_5 = $row["price"];
+                    }
+                }
+            } else {
+                echo "0 results id=", $row["id"];
+            }
+            ?>
+
             <h2 style="font-weight: bold;">
                 <input type="button" value="Show" id="buttonShow1">
                 <input type="submit" value="Hide" id="buttonHide1">
@@ -116,27 +143,28 @@
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
-                    <td></td>
+                    <td><?php echo $price_1 * $sum_qty_1; ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td></td>
+                    <td><?php echo $price_2 * $sum_qty_2; ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
-                    <td></td>
+                    <td><?php echo $price_3 * $sum_qty_3; ?></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td></td>
+                    <td><?php echo $price_4 * $sum_qty_4; ?></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
-                    <td></td>
+                    <td><?php echo $price_5 * $sum_qty_5; ?></td>
                 </tr>
                 <tr>
-                    <td class="total-price-text"><b>Total:</b></td>
-                    <td class="tabulation">$0.00</td>
+                    <td class="total-price-text"><b>Total ($):</b></td>
+                    <td class="tabulation"><?php echo $price_1 * $sum_qty_1 + $price_2 * $sum_qty_2 +
+                                                $price_3 * $sum_qty_3 + $price_4 * $sum_qty_4 + $price_5 * $sum_qty_5; ?></td>
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Best Seller ($):</b></td>

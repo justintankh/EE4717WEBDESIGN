@@ -91,6 +91,30 @@
             ?>
 
             <?php
+            if (isset($_POST['submit'])) {
+                // Check if item is checked
+                $price_1 = $_POST['item1'];
+                $price_2 = $_POST['item2'];
+                $price_3 = $_POST['item3'];
+                $price_4 = $_POST['item4'];
+                $price_5 = $_POST['item5'];
+
+                $sql1 = "UPDATE MyData SET price=$price_1 WHERE id=1";
+                $sql2 = "UPDATE MyData SET price=$price_2 WHERE id=2";
+                $sql3 = "UPDATE MyData SET price=$price_3 WHERE id=3";
+                $sql4 = "UPDATE MyData SET price=$price_4 WHERE id=4";
+                $sql5 = "UPDATE MyData SET price=$price_5 WHERE id=5";
+
+                $res = mysqli_query($conn, $sql1) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+                $res = mysqli_query($conn, $sql2) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+                $res = mysqli_query($conn, $sql3) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+                $res = mysqli_query($conn, $sql4) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+                $res = mysqli_query($conn, $sql5) or die(mysqli_error($conn)); //if query successful, $res is true, else false
+
+            }
+
+            ?>
+            <?php
             $sql = "SELECT id, item, price FROM MyData";
             $result = mysqli_query($conn, $sql);
 
@@ -183,28 +207,12 @@
                             <input type="button" value="Clear" onclick="clearPrice()">
                         </td>
                         <td class="submit-button" id="submit-button">
-                            <input type="submit" value="Submit">
+                            <input type="submit" name="submit" value="Submit">
                             <!-- TODO: Add PRICE Update Locally -->
                         </td>
                     </tr>
                 </form>
-                <?php
-                if (isset($_POST['submit'])) {
-                    echo ("Test");
-                    // Check if item is checked
-                    $price_1 = $_POST['item1'];
-                    $sql = "UPDATE MyData SET price=$price_1 WHERE id=1";
-                    $res = mysqli_query($conn, $sql) or die(mysqli_error()); //if query successful, $res is true, else false
 
-                }
-                // if (mysqli_query($conn, $sql)) {
-                //     echo "Record updated successfully";
-                // } else {
-                //     echo "Error updating record: " . mysqli_error($conn);
-                // }
-
-                // 
-                ?>
 
             </table>
             <script type="text/javascript" src="adminMenu.js"></script>

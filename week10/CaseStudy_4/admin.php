@@ -91,69 +91,32 @@
             ?>
 
             <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=1";
+            $sql = "SELECT id, item, price FROM MyData";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $price_1 = $row["price"];
+                    if ($row["id"] == 1) {
+                        $price_1 = $row["price"];
+                    }
+                    if ($row["id"] == 2) {
+                        $price_2 = $row["price"];
+                    }
+                    if ($row["id"] == 3) {
+                        $price_3 = $row["price"];
+                    }
+                    if ($row["id"] == 4) {
+                        $price_4 = $row["price"];
+                    }
+                    if ($row["id"] == 5) {
+                        $price_5 = $row["price"];
+                    }                  // $price_1 = $row["price"];
                 }
             } else {
-                echo "0 results";
+                echo "0 results id=", $row["id"];
             }
             ?>
 
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=2";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_2 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=3";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_3 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=4";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_4 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=5";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_5 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
 
             <h2 style="font-weight: bold;">Coffee at JavaJam</h2>
             <table>
@@ -201,7 +164,13 @@
                         <input type="number" id="third-menu-priceChange" class="menu-qty">
                     </td>
                 </tr>
-                <form action="menuChangeSubmit.php" method="post">
+                <?php
+                if (isset($_SESSION['add'])) { // Checking whether session is set or not
+                    echo $_SESSION['add']; //Display session msesage if set
+                    unset($_SESSION['add']); //Remove session Message
+                }
+                ?>
+                <form action="admin.php" method="POST">
                     <tr>
                         <td></td>
                         <td></td>
@@ -219,6 +188,24 @@
                         </td>
                     </tr>
                 </form>
+                <?php
+                if (isset($_POST['submit'])) {
+                    echo ("Test");
+                    // Check if item is checked
+                    $price_1 = $_POST['item1'];
+                    $sql = "UPDATE MyData SET price=$price_1 WHERE id=1";
+                    $res = mysqli_query($conn, $sql) or die(mysqli_error()); //if query successful, $res is true, else false
+
+                }
+                // if (mysqli_query($conn, $sql)) {
+                //     echo "Record updated successfully";
+                // } else {
+                //     echo "Error updating record: " . mysqli_error($conn);
+                // }
+
+                // 
+                ?>
+
             </table>
             <script type="text/javascript" src="adminMenu.js"></script>
         </div>

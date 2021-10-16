@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>JavaJam Coffee House</title>
+    <style>
+        .opacity {
+            position: relative;
+            /* outline: 1px solid red; */
+            background-color: rgba(0, 0, 0, .7);
+            color: rgba(0, 0, 0, 1);
+            margin: auto;
+            height: 50px;
+        }
+
+        .opacity:hover {
+            background-color: #F5F5DD;
+        }
+
+
+        .hidden {
+            /* outline: 1px solid blue; */
+            color: white;
+            position: absolute;
+            text-align: center;
+            top: 0%;
+            /* right: 24%; */
+            margin: auto;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .hidden:hover {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        /* .hidden:hover {
+            color: rgba(0, 0, 0, 0);
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div id="leftcolumn">
+            <nav>
+                <ul>
+                    <li><a style="color: rgba(61, 30, 26, 1)" href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="rightcolumn" class="content">
+            <h2>Follow the Winding Road to JavaJam</h2>
+            <table>
+                <tr>
+                    <td>
+                        <img src="homeimage.png" class="home-img" alt="road">
+                    </td>
+                    <td>
+                        <ul class="ul-gif">
+                            <li>Speciality Coffee and Tea</li>
+                            <li>Bagels, Muffins, and Organic Snacks</li>
+                            <li>Music and Poetry Readings</li>
+                            <li>Open Mic Night Every Friday</li>
+                        </ul>
+                        <div class="opacity">
+                            <p class="address">54321 Route 42<br>Ellison Bay, WI 54210<br>888-555-8888</p>
+                            <P class="hidden"><br>Mouse over to show</P>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>
+            <br><small><i><a href="mailto:justin@tan.com">justin@tankoonhan.com</a></i></small>
+        </footer>
+    </div>
+</body>
+
+</html>

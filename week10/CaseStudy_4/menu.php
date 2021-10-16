@@ -67,8 +67,6 @@
             // Check connection
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
-            } else {
-                echo "Connection Successful";
             }
             ?>
 
@@ -192,7 +190,7 @@
                         <input type="radio" , name="third-menu-choice" , value="single" , checked="checked">
                         <label for="single-capp"><strong>Single $<?php echo $price_4 ?> </strong></label>
                         <input type="radio" , name="third-menu-choice" , value="double">
-                        <label for="double-capp"><strong>Double $<?php echo $price_ ?></strong></label>
+                        <label for="double-capp"><strong>Double $<?php echo $price_5 ?></strong></label>
                     </td>
                     <td class="tabulation-table">
                         <div>

@@ -51,6 +51,11 @@
 
         #rightcolumn {
             min-height: 50vh;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: left;
         }
     </style>
 </head>
@@ -105,37 +110,30 @@
             <table id="table1">
                 <tr>
                     <td class="tabulation">Item</td>
-                    <td class="tabulation">QTY</td>
-                    <td class="tabulation">Total</td>
+                    <td class="tabulation">Sales</td>
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
-                    <td>Quantity:<?php $sum ?></td>
-                    <td></td>
+                    <td><?php $sum ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
                     <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
                     <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Total:</b></td>
-                    <td class="tabulation">#0</td>
                     <td class="tabulation">$0.00</td>
                 </tr>
 
@@ -150,37 +148,30 @@
                 <tr>
                     <td class="tabulation">Item</td>
                     <td class="tabulation">QTY</td>
-                    <td class="tabulation">Total</td>
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
-                    <td>Quantity:<?php $sum ?></td>
-                    <td></td>
+                    <td><?php $sum ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
                     <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
                     <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Total:</b></td>
                     <td class="tabulation">#0</td>
-                    <td class="tabulation">$0.00</td>
                 </tr>
 
             </table>

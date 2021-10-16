@@ -16,13 +16,14 @@
             padding: 10px;
         }
 
-        tr:nth-of-type(odd) {
+        tr:nth-of-type(even) {
             background-color: #d2b48c;
         }
 
         .tabulation-table {
             background-color: #F5F5DD;
             border: 2px solid black;
+            text-align: center;
         }
 
         .tabulation {
@@ -103,24 +104,39 @@
             </h2>
             <table id="table1">
                 <tr>
+                    <td class="tabulation">Item</td>
+                    <td class="tabulation">QTY</td>
+                    <td class="tabulation">Total</td>
+                </tr>
+                <tr>
                     <td>Endless Cup:</td>
                     <td>Quantity:<?php $sum ?></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="total-price-text"><b>Total:</b></td>
+                    <td class="tabulation">#0</td>
+                    <td class="tabulation">$0.00</td>
                 </tr>
 
             </table>
@@ -132,24 +148,39 @@
             </h2>
             <table id="table2">
                 <tr>
+                    <td class="tabulation">Item</td>
+                    <td class="tabulation">QTY</td>
+                    <td class="tabulation">Total</td>
+                </tr>
+                <tr>
                     <td>Endless Cup:</td>
                     <td>Quantity:<?php $sum ?></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
-                    <td>Quantity:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="total-price-text"><b>Total:</b></td>
+                    <td class="tabulation">#0</td>
+                    <td class="tabulation">$0.00</td>
                 </tr>
 
             </table>

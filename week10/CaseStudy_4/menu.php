@@ -199,6 +199,26 @@
                         </td>
                     </tr>
                 </form>
+                <?php
+                if (isset($_POST['submit'])) {
+                    $item1 = $_POST['item1'];
+                    $item2 = $_POST['item2'];
+                    $item3 = $_POST['item3'];
+                    $item4 = $_POST['item4'];
+                    $item5 = $_POST['item5'];
+
+                    $sql2 = "INSERT INTO MyOrders SET 
+                    item_1 = '$item1', 
+                    item_2 = '$item2', 
+                    item_3 = '$item3', 
+                    item_4 = '$item4', 
+                    item_5 = '$item5' ";
+
+                    $res2 = mysqli_query($conn, $sql2) or die(mysqli_error($conn));
+                }
+
+
+                ?>
             </table>
             <script type="text/javascript" src="menu.js"></script>
 

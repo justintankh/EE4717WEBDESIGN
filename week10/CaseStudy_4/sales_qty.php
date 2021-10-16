@@ -94,14 +94,14 @@
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            ?>
 
-            <?php
-            $sql = "SELECT SUM(item_1) FROM MyOrders";
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, 'SELECT SUM(item_1) AS item_1_sum, SUM(item_2) AS item_2_sum, SUM(item_3) AS item_3_sum, SUM(item_4) AS item_4_sum, SUM(item_5) AS item_5_sum FROM MyOrders');
             $row = mysqli_fetch_assoc($result);
-            $sum = $row['item_1'];
-            echo $sum;
+            $sum_qty_1 = $row['item_1_sum'];
+            $sum_qty_2 = $row['item_2_sum'];
+            $sum_qty_3 = $row['item_3_sum'];
+            $sum_qty_4 = $row['item_4_sum'];
+            $sum_qty_5 = $row['item_5_sum'];
             ?>
 
             <h2 style="font-weight: bold;">
@@ -116,7 +116,7 @@
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
-                    <td><?php $sum ?></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
@@ -156,31 +156,31 @@
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
-                    <td><?php $sum ?></td>
+                    <td><?php echo $sum_qty_1; ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Single):</td>
-                    <td></td>
+                    <td><?php echo $sum_qty_2; ?></td>
                 </tr>
                 <tr>
                     <td>Cafe au Lait (Double):</td>
-                    <td></td>
+                    <td><?php echo $sum_qty_3; ?></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Single):</td>
-                    <td></td>
+                    <td><?php echo $sum_qty_4; ?></td>
                 </tr>
                 <tr>
                     <td>Iced Cappuccino (Double):</td>
-                    <td></td>
+                    <td><?php echo $sum_qty_5; ?></td>
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Total:</b></td>
-                    <td class="tabulation">#0</td>
+                    <td class="tabulation"><?php echo $sum_qty_1 + $sum_qty_2 + $sum_qty_3 + $sum_qty_4 + $sum_qty_5; ?></td>
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Best Seller (QTY):</b></td>
-                    <td class="tabulation">#0</td>
+                    <td class="tabulation"></td>
                 </tr>
             </table>
             <script type="text/javascript" src="sales_qty.js"></script>

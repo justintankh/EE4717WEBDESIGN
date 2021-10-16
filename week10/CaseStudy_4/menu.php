@@ -16,7 +16,8 @@
             padding: 10px;
         }
 
-        tr:nth-of-type(odd) {
+        tr:nth-child(1),
+        tr:nth-child(3) {
             background-color: #d2b48c;
         }
 
@@ -71,67 +72,29 @@
             ?>
 
             <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=1";
+            $sql = "SELECT id, item, price FROM MyData";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $price_1 = $row["price"];
+                    if ($row["id"] == 1) {
+                        $price_1 = $row["price"];
+                    }
+                    if ($row["id"] == 2) {
+                        $price_2 = $row["price"];
+                    }
+                    if ($row["id"] == 3) {
+                        $price_3 = $row["price"];
+                    }
+                    if ($row["id"] == 4) {
+                        $price_4 = $row["price"];
+                    }
+                    if ($row["id"] == 5) {
+                        $price_5 = $row["price"];
+                    }                  // $price_1 = $row["price"];
                 }
             } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=2";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_2 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=3";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_3 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=4";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_4 = $row["price"];
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-            <?php
-            $sql = "SELECT id, item, price FROM MyData WHERE id=5";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $price_5 = $row["price"];
-                }
-            } else {
-                echo "0 results";
+                echo "0 results id=", $row["id"];
             }
             ?>
 
@@ -140,8 +103,8 @@
                 <tr>
 
                     <td id="text-center"><b>Just Java </b></td>
-                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b>Endless Cup $<?php echo $price_1 ?></b></td>
-                    <td class="tabulation-table">
+                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b id="menu-1-price">Endless Cup $<?php echo $price_1 ?></b></td>
+                    <td class=" tabulation-table">
                         <label for="first-menu-qty">Qty:</label>
                         <input type="number" id="first-menu-qty" , class="menu-qty">
                     </td>
@@ -168,9 +131,9 @@
                     <td id="text-center"><b>Cafe au Lait </b></td>
                     <td>House blended coffee infused into a smooth, steamed milk<br>
                         <input type="radio" , name="second-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong>Single $<?php echo $price_2 ?> </strong></label>
+                        <label for="single-capp"><strong id="menu-2-price-1">Single $<?php echo $price_2 ?> </strong></label>
                         <input type="radio" , name="second-menu-choice" , value="double">
-                        <label for="double-capp"><strong>Double $<?php echo $price_3 ?></strong></label>
+                        <label for="double-capp"><strong id="menu-2-price-2">Double $<?php echo $price_3 ?></strong></label>
                     </td>
                     <td class="tabulation-table">
                         <div>
@@ -188,9 +151,9 @@
                     <td id="text-center"><b>Iced Cappuccino</b></td>
                     <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass<br><br>
                         <input type="radio" , name="third-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong>Single $<?php echo $price_4 ?> </strong></label>
+                        <label for="single-capp"><strong id="menu-3-price-1">Single $<?php echo $price_4 ?> </strong></label>
                         <input type="radio" , name="third-menu-choice" , value="double">
-                        <label for="double-capp"><strong>Double $<?php echo $price_5 ?></strong></label>
+                        <label for="double-capp"><strong id="menu-3-price-2">Double $<?php echo $price_5 ?></strong></label>
                     </td>
                     <td class="tabulation-table">
                         <div>
@@ -217,6 +180,23 @@
                         </div>
                     </td>
                 </tr>
+                <form action="menu.php" method="POST">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <input type="hidden" name="item1" id="hidden-item-1">
+                        <input type="hidden" name="item2" id="hidden-item-2">
+                        <input type="hidden" name="item3" id="hidden-item-3">
+                        <input type="hidden" name="item4" id="hidden-item-4">
+                        <input type="hidden" name="item5" id="hidden-item-5">
+                        <td class="clear-button" id="clear-button">
+                            <input type="button" value="Clear" onclick="clearPrice()">
+                        </td>
+                        <td class="submit-button" id="submit-button">
+                            <input type="submit" name="submit" value="Submit" onClick="orderSubmitted()">
+                        </td>
+                    </tr>
+                </form>
             </table>
             <script type="text/javascript" src="menu.js"></script>
 

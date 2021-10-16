@@ -76,6 +76,85 @@
             </nav>
         </div>
         <div id="rightcolumn" class="content">
+            <?php
+            $servername = "localhost";
+            $username = "f32ee";
+            $password = "f32ee";
+            $dbname = "f32ee";
+
+            // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=1";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_1 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=2";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_2 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=3";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_3 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=4";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_4 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=5";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_5 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
             <h2 style="font-weight: bold;">Coffee at JavaJam</h2>
             <table>
                 <tr>
@@ -88,7 +167,7 @@
                     <td class="checkbox-column"><input type="checkbox" id="first-menu-change" name="first-menu-change" value="check1">
                     </td>
                     <td id="text-center"><b>Just Java </b></td>
-                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b id="menu-1-price"></b>
+                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b id="menu-1-price"><?php echo $price_1 ?></b>
                     </td>
                     <td class="tabulation-table" id="first-menu-priceChangeBox">
                         <input type="number" id="first-menu-priceChange" class="menu-qty">
@@ -100,9 +179,9 @@
                     <td id="text-center"><b>Cafe au Lait </b></td>
                     <td>House blended coffee infused into a smooth, steamed milk<br>
                         <input type="radio" , name="second-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong id="menu-2-price-1"></strong></label>
+                        <label for="single-capp"><strong id="menu-2-price-1"><?php echo $price_2 ?></strong></label>
                         <input type="radio" , name="second-menu-choice" , value="double">
-                        <label for="double-capp"><strong id="menu-2-price-2"></strong></label>
+                        <label for="double-capp"><strong id="menu-2-price-2"><?php echo $price_3 ?></strong></label>
                     </td>
                     <td class="tabulation-table" id="second-menu-priceChangeBox">
                         <input type="number" id="second-menu-priceChange" class="menu-qty">
@@ -114,9 +193,9 @@
                     <td id="text-center"><b>Iced Cappuccino</b></td>
                     <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass<br><br>
                         <input type="radio" , name="third-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong id="menu-3-price-1"></strong></label>
+                        <label for="single-capp"><strong id="menu-3-price-1"><?php echo $price_4 ?></strong></label>
                         <input type="radio" , name="third-menu-choice" , value="double">
-                        <label for="double-capp"><strong id="menu-3-price-2"></strong></label>
+                        <label for="double-capp"><strong id="menu-3-price-2"><?php echo $price_5 ?></strong></label>
                     </td>
                     <td class="tabulation-table" id="third-menu-priceChangeBox">
                         <input type="number" id="third-menu-priceChange" class="menu-qty">

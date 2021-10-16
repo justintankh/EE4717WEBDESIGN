@@ -50,12 +50,13 @@
                     <li><a style="color: rgba(61, 30, 26, 1)" href="menu.html">Menu</a></li>
                     <li><a href="music.html">Music</a></li>
                     <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="admin.php">Admin</a></li>
                 </ul>
             </nav>
         </div>
         <div id="rightcolumn" class="content">
-        
-        <?php
+
+            <?php
             $servername = "localhost";
             $username = "f32ee";
             $password = "f32ee";
@@ -66,33 +67,82 @@
             // Check connection
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
+            } else {
+                echo "Connection Successful";
             }
-            else{
-                echo"Connection Successful";
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=1";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_1 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=2";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_2 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=3";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_3 = $row["price"];
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=4";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_4 = $row["price"];
+                }
+            } else {
+                echo "0 results";
             }
             ?>
 
             <?php
             $sql = "SELECT id, item, price FROM MyData WHERE id=5";
             $result = mysqli_query($conn, $sql);
-            
+
             if (mysqli_num_rows($result) > 0) {
-                // output data of each row
-                while($row = mysqli_fetch_assoc($result)) {
-                    // echo "Item: " . $row["item"]. " " . $row["price"]. "<br>";
-                    // echo "Item: " .$row["item"]. "<br>";
-                    echo "Price: " .$row["price"]. "<br>";
-                    // echo "Price:" .$row["price"]
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $price_5 = $row["price"];
                 }
             } else {
                 echo "0 results";
             }
             ?>
+
             <h2 style="font-weight: bold;">Coffee at JavaJam</h2>
             <table>
                 <tr>
+
                     <td id="text-center"><b>Just Java </b></td>
-                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b>Endless Cup $2.00</b></td>
+                    <td>Regular house blend, decaffeinated coffee, or flavor of the day<br><b>Endless Cup $<?php echo $price_1 ?></b></td>
                     <td class="tabulation-table">
                         <label for="first-menu-qty">Qty:</label>
                         <input type="number" id="first-menu-qty" , class="menu-qty">
@@ -105,12 +155,24 @@
                 </tr>
 
                 <tr>
+                    <?php
+                    $sql = "SELECT id, item, price FROM MyData WHERE id=2";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $price_2 = $row["price"];
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    ?>
                     <td id="text-center"><b>Cafe au Lait </b></td>
                     <td>House blended coffee infused into a smooth, steamed milk<br>
                         <input type="radio" , name="second-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong>Single $2.00</strong></label>
+                        <label for="single-capp"><strong>Single $<?php echo $price_2 ?> </strong></label>
                         <input type="radio" , name="second-menu-choice" , value="double">
-                        <label for="double-capp"><strong>Double $3.00</strong></label>
+                        <label for="double-capp"><strong>Double $<?php echo $price_3 ?></strong></label>
                     </td>
                     <td class="tabulation-table">
                         <div>
@@ -128,9 +190,9 @@
                     <td id="text-center"><b>Iced Cappuccino</b></td>
                     <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass<br><br>
                         <input type="radio" , name="third-menu-choice" , value="single" , checked="checked">
-                        <label for="single-capp"><strong>Single $4.75</strong></label>
+                        <label for="single-capp"><strong>Single $<?php echo $price_4 ?> </strong></label>
                         <input type="radio" , name="third-menu-choice" , value="double">
-                        <label for="double-capp"><strong>Double $5.75</strong></label>
+                        <label for="double-capp"><strong>Double $<?php echo $price_ ?></strong></label>
                     </td>
                     <td class="tabulation-table">
                         <div>
@@ -159,7 +221,7 @@
                 </tr>
             </table>
             <script type="text/javascript" src="menu.js"></script>
-            
+
         </div>
         <footer>
             <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>
@@ -168,4 +230,4 @@
     </div>
 </body>
 
-</html>
+</html>s

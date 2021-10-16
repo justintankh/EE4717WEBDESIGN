@@ -178,12 +178,6 @@
                         <input type="number" id="third-menu-priceChange" class="menu-qty">
                     </td>
                 </tr>
-                <?php
-                if (isset($_SESSION['add'])) { // Checking whether session is set or not
-                    echo $_SESSION['add']; //Display session msesage if set
-                    unset($_SESSION['add']); //Remove session Message
-                }
-                ?>
                 <form action="admin.php" method="POST">
                     <tr>
                         <td></td>
@@ -198,12 +192,9 @@
                         </td>
                         <td class="submit-button" id="submit-button">
                             <input type="submit" name="submit" value="Submit">
-                            <!-- TODO: Add PRICE Update Locally -->
                         </td>
                     </tr>
                 </form>
-
-
             </table>
             <script type="text/javascript" src="adminMenu.js"></script>
         </div>

@@ -24,6 +24,38 @@ item3Choice.forEach((item) => {
     item.addEventListener("change", radioUpdate, false);
 })
 
+// Item prices from DB
+var item1MenuPrc = document.getElementById("menu-1-price");
+var item2MenuPrc1 = document.getElementById("menu-2-price-1");
+var item2MenuPrc2 = document.getElementById("menu-2-price-2");
+var item3MenuPrc1 = document.getElementById("menu-3-price-1");
+var item3MenuPrc2 = document.getElementById("menu-3-price-2");
+
+// Prices from PHP to JS
+console.log(parseFloat(item1MenuPrc.innerHTML.split('$')[1]));
+console.log(parseFloat(item2MenuPrc1.innerHTML.split('$')[1]));
+console.log(parseFloat(item2MenuPrc2.innerHTML.split('$')[1]));
+console.log(parseFloat(item3MenuPrc1.innerHTML.split('$')[1]));
+console.log(parseFloat(item3MenuPrc2.innerHTML.split('$')[1]));
+
+var item1Price;
+var item2Price;
+var item3Price;
+var item4Price;
+var item5Price;
+item1Price = item1Price == undefined? item1MenuPrc.innerHTML.split('$')[1] : item1Price;
+item2Price = item2Price == undefined? item2MenuPrc1.innerHTML.split('$')[1] : item2Price;
+item3Price = item3Price == undefined? item2MenuPrc2.innerHTML.split('$')[1] : item3Price;
+item4Price = item4Price == undefined? item3MenuPrc1.innerHTML.split('$')[1] : item4Price;
+item5Price = item5Price == undefined? item3MenuPrc2.innerHTML.split('$')[1] : item5Price;
+
+// Hidden form 
+var hiddenInput1 = document.getElementById("hidden-item-1");
+var hiddenInput2 = document.getElementById("hidden-item-2");
+var hiddenInput3 = document.getElementById("hidden-item-3");
+var hiddenInput4 = document.getElementById("hidden-item-4");
+var hiddenInput5 = document.getElementById("hidden-item-5");
+
 var item1Qty = 0;
 var item2Qty = 0;
 var item3Qty = 0;
@@ -62,10 +94,10 @@ function qtyCounter (event) {
     return tabulate(event);
 }
 
-const item1Price = 2.00;
-const item2Price = 2.00;
-// const item2PriceB = 3.00;
-const item3Price = 4.75;
+// const item1Price = 2.00;
+// const item2Price = 2.00;
+// // const item2PriceB = 3.00;
+// const item3Price = 4.75;
 // const item3PriceB = 5.75;
 var totalPrice = 0;
 var tabulatedPrice1 = 0;
@@ -83,15 +115,20 @@ function tabulate(event) {
     if (nodeName == "first-menu-qty") {
         tabulatedPrice1 = item1Price*item1Qty;
         item1MenuTol.innerHTML = '<div>$' + `${tabulatedPrice1.toFixed(2)}` + '</div>';
+        hiddenInput1.value = item1Qty;
     }
     else if(nodeName == "second-menu-qty"){
         tabulatedPrice2 = item2Price*item2Qty;
-        tabulatedPrice2 = item2Choice[0].checked ? item2Price*item2Qty : (item2Price+1)*item2Qty;
+        tabulatedPrice2 = item2Choice[0].checked ? item2Price*item2Qty : (item3Price)*item2Qty;
+        item2Choice[0].checked ? hiddenInput2.value = item2Qty :  hiddenInput2.value = '';
+        item2Choice[1].checked ? hiddenInput3.value = item2Qty :  hiddenInput3.value = '';
         item2MenuTol.innerHTML = '<div>$' + `${tabulatedPrice2.toFixed(2)}` + '</div>';
     }
     else if (nodeName == "third-menu-qty") {
         tabulatedPrice3 = (item3Price*item3Qty);
-        tabulatedPrice3 = item3Choice[0].checked ? item3Price*item3Qty : (item3Price+1)*item3Qty;
+        tabulatedPrice3 = item3Choice[0].checked ? item4Price*item3Qty : (item5Price)*item3Qty;
+        item3Choice[0].checked ? hiddenInput4.value = item3Qty :  hiddenInput4.value = '';
+        item3Choice[1].checked ? hiddenInput5.value = item3Qty :  hiddenInput5.value = '';
         item3MenuTol.innerHTML = '<div>$' + `${tabulatedPrice3.toFixed(2)}` + '</div>';
     }
     totalPrice = tabulatedPrice1 + tabulatedPrice2 + tabulatedPrice3;
@@ -102,6 +139,12 @@ function tabulate(event) {
     console.log('totalPrice:', totalPrice)
     totalPriceDOM.innerHTML = '<div>$' + `${totalPrice.toFixed(2)}` + '</div>';
 
+    console.log('hiddenInput1:', hiddenInput1.value);
+    console.log('hiddenInput2:', hiddenInput2.value);
+    console.log('hiddenInput3:', hiddenInput3.value);
+    console.log('hiddenInput4:', hiddenInput4.value);
+    console.log('hiddenInput5:', hiddenInput5.value);
+    
     return true;
 }
 
@@ -114,4 +157,17 @@ function radioUpdate(event) {
     tempEvent.currentTarget.id = (event.currentTarget.name == 'second-menu-choice') ? 'second-menu-qty' : 'third-menu-qty';
     console.log(event.currentTarget.name);
     return tabulate(tempEvent);
+}
+
+function clearPrice(){
+    console.log('clearPrice()');
+    window.location.reload();
+}
+
+function orderSubmitted(){
+    alert(`
+        Endless Cup: ${item1Qty} 
+        Cafe au Lait: ${item2Qty} | ${item2Choice[0].checked ? 'Single' : 'Double'} 
+        Iced Cappu: ${item3Qty}  | ${item3Choice[0].checked ? 'Single' : 'Double'}
+        `);
 }

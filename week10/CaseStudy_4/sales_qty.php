@@ -35,6 +35,22 @@
         .total-price-text {
             text-align: right;
         }
+
+        #table1,
+        #table2 {
+            visibility: hidden;
+            display: none;
+        }
+
+        #buttonHide1,
+        #buttonHide2 {
+            visibility: hidden;
+            display: none;
+        }
+
+        #rightcolumn {
+            min-height: 50vh;
+        }
     </style>
 </head>
 
@@ -47,10 +63,12 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a style="color: rgba(61, 30, 26, 1)" href="menu.html">Menu</a></li>
+                    <li><a href="menu.php">Menu</a></li>
                     <li><a href="music.html">Music</a></li>
                     <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="admin.php">Admin</a></li>
+                    <br>
+                    <li><a href="admin.php">C/Prices</a></li>
+                    <li><a style="color: rgba(61, 30, 26, 1)" href="sales_qty.php">Report</a></li>
                 </ul>
             </nav>
         </div>
@@ -78,8 +96,12 @@
             echo $sum;
             ?>
 
-            <h2 style="font-weight: bold;">Quantity Report</h2>
-            <table>
+            <h2 style="font-weight: bold;">
+                <input type="button" value="Show" id="buttonShow1">
+                <input type="submit" value="Hide" id="buttonHide1">
+                Total dollar sales by Products
+            </h2>
+            <table id="table1">
                 <tr>
                     <td>Endless Cup:</td>
                     <td>Quantity:<?php $sum ?></td>
@@ -102,7 +124,36 @@
                 </tr>
 
             </table>
-            <script type="text/javascript" src="menu.js"></script>
+
+            <h2 style="font-weight: bold;">
+                <input type="button" value="Show" id="buttonShow2">
+                <input type="submit" value="Hide" id="buttonHide2">
+                Sales quantities by Product Categories
+            </h2>
+            <table id="table2">
+                <tr>
+                    <td>Endless Cup:</td>
+                    <td>Quantity:<?php $sum ?></td>
+                </tr>
+                <tr>
+                    <td>Cafe au Lait (Single):</td>
+                    <td>Quantity:</td>
+                </tr>
+                <tr>
+                    <td>Cafe au Lait (Double):</td>
+                    <td>Quantity:</td>
+                </tr>
+                <tr>
+                    <td>Iced Cappuccino (Single):</td>
+                    <td>Quantity:</td>
+                </tr>
+                <tr>
+                    <td>Iced Cappuccino (Double):</td>
+                    <td>Quantity:</td>
+                </tr>
+
+            </table>
+            <script type="text/javascript" src="sales_qty.js"></script>
 
         </div>
         <footer>

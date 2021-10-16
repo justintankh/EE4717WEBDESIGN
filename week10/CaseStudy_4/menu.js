@@ -31,6 +31,8 @@ var item2MenuPrc2 = document.getElementById("menu-2-price-2");
 var item3MenuPrc1 = document.getElementById("menu-3-price-1");
 var item3MenuPrc2 = document.getElementById("menu-3-price-2");
 
+console.log(item1MenuPrc.innerHTML);
+
 // Prices from PHP to JS
 console.log(parseFloat(item1MenuPrc.innerHTML.split('$')[1]));
 console.log(parseFloat(item2MenuPrc1.innerHTML.split('$')[1]));

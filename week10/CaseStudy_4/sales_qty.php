@@ -163,12 +163,29 @@
                 </tr>
                 <tr>
                     <td class="total-price-text"><b>Total ($):</b></td>
-                    <td class="tabulation"><?php echo $price_1 * $sum_qty_1 + $price_2 * $sum_qty_2 +
-                                                $price_3 * $sum_qty_3 + $price_4 * $sum_qty_4 + $price_5 * $sum_qty_5; ?></td>
+                    <td class="tabulation">
+                        <?php echo $price_1 * $sum_qty_1 + $price_2 * $sum_qty_2 +
+                            $price_3 * $sum_qty_3 + $price_4 * $sum_qty_4 + $price_5 * $sum_qty_5;
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="total-price-text"><b>Best Seller ($):</b></td>
-                    <td class="tabulation">#0</td>
+                    <td class="total-price-text"><b>Best Seller:</b></td>
+                    <td class="tabulation">
+                        <?php
+                        $sum_prices = array($price_1 * $sum_qty_1, $price_2 * $sum_qty_2, $price_3 * $sum_qty_3, $price_4 * $sum_qty_4, $price_5 * $sum_qty_5);
+                        $item_name = array('Endless Cup', 'Cafe au Lait (Single)', 'Cafe au Lait (Double)', 'Iced Cappuccino (Single)', 'Iced Cappuccino (Double)');
+                        $largest = $sum_qty_1;
+                        $largest_item = $item_name[0];
+                        for ($i = 0; $i < 5; $i++) {
+                            if ($sum_prices[$i] > $largest) {
+                                $largest = $sum_prices[$i];
+                                $largest_item = $item_name[$i];
+                            }
+                        }
+                        echo $largest_item
+                        ?>
+                    </td>
                 </tr>
             </table>
 
@@ -203,12 +220,26 @@
                     <td><?php echo $sum_qty_5; ?></td>
                 </tr>
                 <tr>
-                    <td class="total-price-text"><b>Total:</b></td>
+                    <td class="total-price-text"><b>Total: (QTY)</b></td>
                     <td class="tabulation"><?php echo $sum_qty_1 + $sum_qty_2 + $sum_qty_3 + $sum_qty_4 + $sum_qty_5; ?></td>
                 </tr>
                 <tr>
-                    <td class="total-price-text"><b>Best Seller (QTY):</b></td>
-                    <td class="tabulation"></td>
+                    <td class="total-price-text"><b>Best Seller:</b></td>
+                    <td class="tabulation">
+                        <?php
+                        $sum_qtys = array($sum_qty_1, $sum_qty_2, $sum_qty_3, $sum_qty_4, $sum_qty_5);
+                        $item_name = array('Endless Cup', 'Cafe au Lait (Single)', 'Cafe au Lait (Double)', 'Iced Cappuccino (Single)', 'Iced Cappuccino (Double)');
+                        $largest = $sum_qty_1;
+                        $largest_item = $item_name[0];
+                        for ($i = 0; $i < 5; $i++) {
+                            if ($sum_qtys[$i] > $largest) {
+                                $largest = $sum_qtys[$i];
+                                $largest_item = $item_name[$i];
+                            }
+                        }
+                        echo $largest_item
+                        ?>
+                    </td>
                 </tr>
             </table>
             <script type="text/javascript" src="sales_qty.js"></script>

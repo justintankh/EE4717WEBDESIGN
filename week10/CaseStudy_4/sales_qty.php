@@ -16,7 +16,9 @@
             padding: 10px;
         }
 
-        tr:nth-of-type(even) {
+        tr:nth-child(1),
+        tr:nth-child(3),
+        tr:nth-child(5) {
             background-color: #d2b48c;
         }
 
@@ -110,7 +112,7 @@
             <table id="table1">
                 <tr>
                     <td class="tabulation">Item</td>
-                    <td class="tabulation">Sales</td>
+                    <td class="tabulation">$</td>
                 </tr>
                 <tr>
                     <td>Endless Cup:</td>
@@ -136,7 +138,10 @@
                     <td class="total-price-text"><b>Total:</b></td>
                     <td class="tabulation">$0.00</td>
                 </tr>
-
+                <tr>
+                    <td class="total-price-text"><b>Best Seller ($):</b></td>
+                    <td class="tabulation">#0</td>
+                </tr>
             </table>
 
             <h2 style="font-weight: bold;">
@@ -173,7 +178,10 @@
                     <td class="total-price-text"><b>Total:</b></td>
                     <td class="tabulation">#0</td>
                 </tr>
-
+                <tr>
+                    <td class="total-price-text"><b>Best Seller (QTY):</b></td>
+                    <td class="tabulation">#0</td>
+                </tr>
             </table>
             <script type="text/javascript" src="sales_qty.js"></script>
 

@@ -18,6 +18,15 @@ item VARCHAR(30) NOT NULL,
 price DECIMAL(30,2) NOT NULL
 )";
 
+$sql1 = "CREATE TABLE MyOrders (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    item_1 INT(20) NOT NULL,
+    item_2 INT(20) NOT NULL,
+    item_3 INT(20) NOT NULL,
+    item_4 INT(20) NOT NULL,
+    item_5 INT(20) NOT NULL
+)";
+
 /* NOT NULL - Each row must contain a value for that column, null values are not allowed
 DEFAULT value - Set a default value that is added when no other value is passed
 UNSIGNED - Used for number types, limits the stored data to positive numbers and zero
@@ -31,6 +40,9 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error creating table: " . mysqli_error($conn);
 }
-
+if (mysqli_query($conn, $sql1)) {
+    echo "Table MyOrders created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
 mysqli_close($conn);
-?>

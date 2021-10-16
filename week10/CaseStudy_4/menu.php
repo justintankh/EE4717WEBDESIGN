@@ -55,6 +55,40 @@
             </nav>
         </div>
         <div id="rightcolumn" class="content">
+        
+        <?php
+            $servername = "localhost";
+            $username = "f32ee";
+            $password = "f32ee";
+            $dbname = "f32ee";
+
+            // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            else{
+                echo"Connection Successful";
+            }
+            ?>
+
+            <?php
+            $sql = "SELECT id, item, price FROM MyData WHERE id=5";
+            $result = mysqli_query($conn, $sql);
+            
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    // echo "Item: " . $row["item"]. " " . $row["price"]. "<br>";
+                    // echo "Item: " .$row["item"]. "<br>";
+                    echo "Price: " .$row["price"]. "<br>";
+                    // echo "Price:" .$row["price"]
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
             <h2 style="font-weight: bold;">Coffee at JavaJam</h2>
             <table>
                 <tr>
@@ -126,6 +160,7 @@
                 </tr>
             </table>
             <script type="text/javascript" src="menu.js"></script>
+            
         </div>
         <footer>
             <small><i>Copyright &copy; 2021 Justin Tan Koon Han</i></small>

@@ -32,10 +32,10 @@ function checkEmailNode (event) {
     // Get the target node of the event
     let emailNode = event.currentTarget;
     console.log(emailNode.value);
-    console.log(emailNode.value.search(/^[\w._-]+@([\w]+\.){2,4}[\w]{2,3}/));
+    console.log(emailNode.value.search(/^([\w.-])+@([\w]+.){1,3}([\w]){2,3}$/));
     
     //// only allow Alphabets and spaces
-    if(emailNode.value.search(/^[\w._-]+@([\w]+\.){2,4}[\w]{2,3}/) != 0){
+    if(emailNode.value.search(/^([\w.-])+@([\w]+.){1,3}([\w]){2,3}$/) != 0){
 
         alert(`
         (${emailNode.id}) Input ERROR:

@@ -1,4 +1,4 @@
-use myuser;
+use f32ee;
 
 insert into customers values
   (3, "Julie Smith", "25 Oak Street", "Airport West"),

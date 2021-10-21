@@ -134,7 +134,7 @@
             ?>
 
 
-            <h2 style="font-weight: bold;">Coffee at JavaJam</h2>
+            <h2 style="font-weight: bold; text-align: center;">Change Menu Prices</h2>
             <table>
                 <tr>
                     <td></td>

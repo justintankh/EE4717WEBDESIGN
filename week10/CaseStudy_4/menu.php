@@ -186,11 +186,11 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <input type="hidden" name="item1" id="hidden-item-1">
-                        <input type="hidden" name="item2" id="hidden-item-2">
-                        <input type="hidden" name="item3" id="hidden-item-3">
-                        <input type="hidden" name="item4" id="hidden-item-4">
-                        <input type="hidden" name="item5" id="hidden-item-5">
+                        <input type="hidden" name="item1" id="hidden-item-1" value='0'>
+                        <input type="hidden" name="item2" id="hidden-item-2" value='0'>
+                        <input type="hidden" name="item3" id="hidden-item-3" value='0'>
+                        <input type="hidden" name="item4" id="hidden-item-4" value='0'>
+                        <input type="hidden" name="item5" id="hidden-item-5" value='0'>
                         <td class="clear-button" id="clear-button">
                             <input type="button" value="Clear" onclick="clearPrice()">
                         </td>
@@ -216,8 +216,6 @@
 
                     $res2 = mysqli_query($conn, $sql2) or die(mysqli_error($conn));
                 }
-
-
                 ?>
             </table>
             <script type="text/javascript" src="menu.js"></script>
